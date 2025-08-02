@@ -1,4 +1,4 @@
-# 📍 Live Location Tracker (Ethical Testing Tool)
+# 📍 Live Location Tracker
 
 This project captures and visualizes a user's **live location** after they give permission. It is built for **educational, ethical hacking, and testing purposes only**.
 
@@ -37,6 +37,7 @@ Misuse of this tool may violate privacy laws and result in serious legal consequ
 git clone https://github.com/Srinunaik000/Location-Tracker
 cd Location-Tracker
 pip install -r requirements.txt
+
 🌐 Ngrok Setup (Required for Public Access)
 Browsers require HTTPS for geolocation to work. Ngrok gives you a secure HTTPS tunnel to your local server.
 
@@ -50,17 +51,19 @@ brew install ngrok
 https://ngrok.com/download
 
 2. Authenticate Ngrok (only once)
-
 Sign up at ngrok.com, then:
-ngrok config add-authtoken <your_token>
+you can see on the dashboard authtoken
+
+open the terminal then type:
+ngrok config add-authtoken <your_authtoken>
 
 3. Run the server (Ngrok launches automatically)
-python server.py
+python3 server.py
 
 Ngrok will print a public HTTPS URL like:
 
 [+] Public URL: https://abc123.ngrok.io
-[+] Map Dashboard: https://abc123.ngrok.io/map
+[+] Map Dashboard: http://localhost:5000/map
 
 
 🔗 Usage
@@ -68,4 +71,4 @@ Send the Ngrok URL (e.g., https://abc123.ngrok.io) to your test target (they mus
 
 Once they click "Find Out Now" and allow location access, they’ll be redirected to /map.
 
-You can watch live location updates at https://abc123.ngrok.io/map.
+You can watch live location updates at https://localhost:5000/map.
