@@ -34,8 +34,8 @@ Misuse of this tool may violate privacy laws and result in serious legal consequ
 ## 🐍 Python Setup
 
 ```bash
-git clone https://github.com/yourusername/live-location-tracker
-cd live-location-tracker
+git clone https://github.com/Srinunaik000/Location-Tracker
+cd Location-Tracker
 pip install -r requirements.txt
 🌐 Ngrok Setup (Required for Public Access)
 Browsers require HTTPS for geolocation to work. Ngrok gives you a secure HTTPS tunnel to your local server.
@@ -43,33 +43,26 @@ Browsers require HTTPS for geolocation to work. Ngrok gives you a secure HTTPS t
 1. Install Ngrok
 If you haven't already:
 
-bash
-Copy
-Edit
 # For Linux/Mac
 brew install ngrok
 
 # Or download manually from:
 https://ngrok.com/download
-2. Authenticate Ngrok (only once)
-Sign up at ngrok.com, then:
 
-bash
-Copy
-Edit
+2. Authenticate Ngrok (only once)
+
+Sign up at ngrok.com, then:
 ngrok config add-authtoken <your_token>
+
 3. Run the server (Ngrok launches automatically)
-bash
-Copy
-Edit
 python server.py
+
 Ngrok will print a public HTTPS URL like:
 
-less
-Copy
-Edit
 [+] Public URL: https://abc123.ngrok.io
 [+] Map Dashboard: https://abc123.ngrok.io/map
+
+
 🔗 Usage
 Send the Ngrok URL (e.g., https://abc123.ngrok.io) to your test target (they must give permission).
 
